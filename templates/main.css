@@ -1,0 +1,211 @@
+body {
+
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  height: 27%;
+  border: 5px solid #20d435;
+  border-radius: 5px;
+}
+@font-face {
+  font-family: 'ChareInk';
+  src: url('../static/fonts/ChareInk-Bold.ttf');
+}
+@font-face {
+  font-family: 'SawarabiGothic-Regular';
+  src: url('../static/fonts/SawarabiGothic-Regular.ttf');
+}
+h1 {
+  font-family: 'ChareInk';
+  font-size: 33px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 15%;
+  padding: 0 0.3%;
+}
+.header_h1 {
+  font-family: 'ChareInk';
+  width: 20%;
+  text-align: center;
+  margin: auto 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(90deg, #f3cea6, #574e4a);
+}
+.dog_img {
+  margin-bottom: 0.2%;
+}
+.search_text {
+  margin-left: 5%;
+  width: 31%;
+}
+#btn_search {
+  background-image: url('../static/search.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 41px;
+  height: 100%;
+  border: none;
+}
+hr {
+  color: #53f266;
+}
+#search_inp {
+  width: 97%;
+  border: none;
+  padding-left: 2.5%;
+  font-family: 'SawarabiGothic-Regular';
+  font-size: 96%;
+}
+p, h2 {
+  font-family: 'SawarabiGothic-Regular';
+}
+#zoo_shops {
+  display: none;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 9;
+}
+.names_shops_pr {
+  font-size: 15px;
+}
+.names_shops {
+  margin-left: 3%;
+  width: 12%;
+  height: 30%;
+}
+.names_a, .rate_a, .sections_a, .compare_a {
+  color: black;
+  text-decoration: none;
+}
+.names_a:hover,  .rate_a:hover, .sections_a:hover, .compare_a:hover {
+  color: #20d435;
+}
+input:focus {
+  outline: none;
+}
+#request {
+  display: none;
+}
+#requests_btn1, #requests_btn2, #requests_btn3 {
+  text-align: left;
+  border: none;
+  height: 30px;
+  padding: 0 4%;
+  width: 94.3%;
+}
+#requests_btn1:hover, #requests_btn2:hover, #requests_btn3:hover {
+  background-color: #d9d9d9;
+}
+.comp_rate {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+}
+#requests_btn_1 {
+  width: 5.7%;
+  height: 30px;
+  background-image: url('../static/cross.png');
+  border: none;
+  background-size: cover;
+}
+#requests_btn_1:hover {
+  opacity: 0.79;
+}
+.requests_div {
+  display: flex;
+  flex-direction: row;
+}
+.shops_p {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.sections {
+  display: flex;
+  flex-direction: row;
+  height: 3.5%;
+}
+.sections_a {
+  margin-left: 2.5%;
+  line-height: 3.5%;
+}
+#prs {
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  border: 2px solid #636363;
+  border-radius: 18px;
+}
+.lt_arrow, .rt_arrow {
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border: none;
+  background-color: white;
+}
+.rt_arrow {
+  float: right;
+  background-image: url('../static/rt_arrow.png');
+  transform: rotate(180deg);
+  margin-right: 4.2%;
+  position: relative;
+}
+.lt_arrow {
+  background-image: url('../static/lt_arrow.png');
+  margin-left: 4.2%;
+}
+.arrows_div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1%;
+}
+p {
+  font-size: 15px;
+}
+.offers_h {
+  text-align: center;
+  margin-top: 1.9%;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+}
+.prd_img {
+  background-color: red;
+  width: 180px;
+  height: 219px;
+  margin: auto;
+  background-size: cover;
+  border-radius: 7.5px;
+}
+.prd_text {
+  text-align: center;
+}
+.prds_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 3%;
+}
+.contacts {
+  display: flex;
+  flex-direction: row;
+}
+.icon_cont {
+  width: 64px;
+  height: 64px;
+  border-radius: 30%;
+  background-color: red;
+}
+.icon_animal {
+  width: 1.15%;
+  margin: 0.25% 0 0 0.25%;
+  position: absolute;
+}

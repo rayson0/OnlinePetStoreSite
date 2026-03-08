@@ -1,0 +1,886 @@
+<html>
+  <head>
+    <title> Сеть зоомагазинов Екатеринбурга </title>
+    <link rel="icon" href="https://cdn-icons-png.freepik.com/512/4775/4775486.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+      body {
+
+      }
+      .search {
+        display: flex;
+        flex-direction: row;
+        height: 27%;
+        border: 5px solid #20d435;
+        border-radius: 5px;
+        width: 36rem;
+      }
+      .search_div {
+        margin: auto 0 auto 2%;
+      }
+      @font-face {
+        font-family: 'ChareInk';
+        src: url('../static/fonts/ChareInk-Bold.ttf');
+      }
+      @font-face {
+        font-family: 'SawarabiGothic-Regular';
+        src: url('../static/fonts/SawarabiGothic-Regular.ttf');
+      }
+      .products {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 1489px;
+      }
+      h1 {
+        font-family: 'ChareInk';
+        font-size: 33px;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        height: 15%;
+        padding: 0 0.3%;
+      }
+      .header_h1 {
+        font-family: 'ChareInk';
+        width: 20%;
+        text-align: center;
+        margin: auto 0;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(90deg, #f3cea6, #574e4a);
+      }
+      .dog_img {
+        margin-bottom: 0.2%;
+      }
+      .search_text {
+        width: 36rem;
+        position: relative;
+      }
+      #btn_search {
+        background-image: url('../static/search.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 41px;
+        height: 100%;
+        border: none;
+      }
+      #btn_search:hover {
+        opacity: 0.92;
+      }
+      hr {
+        color: #53f266;
+      }
+      #search_inp {
+        width: 97%;
+        border: none;
+        outline: 4px solid #20d435;
+        padding-left: 2.5%;
+        font-family: 'SawarabiGothic-Regular';
+        font-size: 96%;
+        border-radius: 4px;
+      }
+      p, h2, input, button, textarea {
+        font-family: 'SawarabiGothic-Regular';
+      }
+      #zoo_shops {
+        display: none;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 9;
+        margin-top: 1.1%;
+      }
+      .names_shops_pr {
+        font-size: 15px;
+      }
+      .names_a, .rate_a, .sections_a, .compare_a {
+        color: black;
+        text-decoration: none;
+      }
+      .names_a:hover,  .rate_a:hover, .sections_a:hover, .compare_a:hover {
+        color: #20d435;
+      }
+      input:focus {
+        outline: none;
+      }
+      #request {
+        display: none;
+        position: absolute;
+        width: calc(36rem + 10px);
+      }
+      .requests_btn1 {
+        text-align: left;
+        border: none;
+        height: 30px;
+        padding: 0 4%;
+        width: 94.3%;
+      }
+      .requests_btn1:hover {
+        background-color: #e3e3e3;
+      }
+      .comp_rate {
+        margin-left: 2%;
+        display: flex;
+        flex-direction: column;
+      }
+      .requests_btn_1 {
+        width: 5.7%;
+        height: 30px;
+        background-image: url('../static/cross.png');
+        border: none;
+        background-size: 45%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .requests_btn_1:hover {
+        opacity: 0.79;
+      }
+      .requests_div {
+        display: flex;
+        flex-direction: row;
+      }
+      .shops_p {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .sections {
+        display: flex;
+        flex-direction: row;
+        height: 3.5%;
+        justify-content: center;
+      }
+      .sections_a {
+        margin-left: 2.5%;
+        line-height: 3.5%;
+      }
+      #prs {
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        border: 2px solid #20d435;
+        border-radius: 18px;
+      }
+      .lt_arrow, .rt_arrow {
+        margin: auto 0;
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        border: none;
+        background-color: white;
+      }
+      .rt_arrow {
+        float: right;
+        background-image: url('../static/rt_arrow.png');
+        transform: rotate(180deg);
+        margin-right: 4.2%;
+        position: relative;
+      }
+      .lt_arrow {
+        background-image: url('../static/lt_arrow.png');
+        margin-left: 4.2%;
+      }
+      .arrows_div {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 1%;
+      }
+      p {
+        font-size: 14px;
+      }
+      .offers_h {
+        text-align: center;
+        margin-top: 1.9%;
+      }
+      .product {
+        display: flex;
+        flex-direction: column;
+        width: 240px;
+        height: 343px;
+        margin: 0 25px;
+        border: 1px solid #20d435;
+        border-radius: 8px;
+        padding: 5px 3px 14px 3px;
+      }
+      .product:hover {
+        box-shadow: 0 0 8.2px 0.2px #20d435;
+        border: none;
+      }
+      .prd_img {
+        width: 240px;
+        height: 240px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 7.5px;
+      }
+      .prd_text {
+        margin: 5% 0;
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow-y: hidden;
+        width: 90%;
+        margin: auto;
+      }
+      .prds_row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+      .contacts {
+        display: flex;
+        flex-direction: row;
+      }
+      .icon_cont {
+        width: 64px;
+        height: 64px;
+        border-radius: 30%;
+        background-color: red;
+      }
+      .icon_animal {
+        width: 1.02%;
+        margin: 0.22% 0 0 0.22%;
+        position: absolute;
+      }
+      .pust_div {
+        height: 3.5%;
+      }
+      .svyaz {
+        background-color: rgb(200, 200, 200);
+      }
+      .btns_menu1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 1%;
+      }
+      .btns_menu {
+        margin: auto 0 auto 2%;
+        width: 30%
+      }
+      .compare, ., .names_shops {
+        width: 210px;
+      }
+      .text_btn {
+        text-align: center;
+        margin: auto 0;
+      }
+      .max_width_text {
+        margin: 5.5px auto 0 auto;
+        font-size: 10.5px;
+        max-width: 75px;
+        text-decoration: none;
+      }
+      .prds_fltr {
+        display: flex;
+        flex-direction: row;
+        padding: 0 0.5%;
+        margin-top: 3%;
+      }
+      .filter {
+        width: 100%;
+        height: 468px;
+        border: 1px solid #20d435;
+        border-radius: 7px;
+        margin: 0 15px;
+      }
+      .btn_val_price, #lower, #upper {
+        margin: 0.4rem;
+      }
+      .boxs_fltr {
+        display: flex;
+        flex-direction: column;
+      }
+      #but_fltr_save, #but_fltr_otm {
+        width: 35%;
+        margin: 9% 4% 0 4%;
+        padding: 4% 1%;
+        border-radius: 10px;
+        font-family: 'SawarabiGothic-Regular';
+      }
+      #but_fltr_save {
+        background-color: #20d435;
+        color: white;
+        border: none;
+      }
+      #but_fltr_save:hover {
+        background-color: rgba(32, 212, 53, 0.91);
+        opacity: 0.9;
+      }
+      #but_fltr_otm:hover {
+        background-color: rgb(250, 250, 250);
+        opacity: 0.9;
+      }
+      #but_fltr_otm {
+        background-color: white;
+        color: #20d435;
+        border: 1px solid #20d435;
+      }
+      .btns_fltr_save {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .btns_val_price {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+       .btn_val_price {
+         border-radius: 8px;
+         border: 1px solid grey;
+         width: 100px;
+         padding: 1%;
+         text-align: center;
+       }
+       .brends_form {
+         display: flex;
+         flex-direction: column;
+       }
+       #brends_div, #classes_div {
+         padding: 0 8%;
+         margin-top: 0.5%;
+       }
+        #classes_div {
+          display: none;
+        }
+        #brends_div  {
+          display: none;
+        }
+       #brends_div label:hover, #classes_div label:hover {
+         color: #20d435;
+         text-decoration: underline;
+       }
+       .boxs_fltr p:hover {
+         color: #20d435;
+       }
+       .box_fltr {
+         padding: 0 6.5%;
+         border-radius: 7px;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+       }
+       .box_fltr:hover {
+         background: rgb(248, 248, 248);
+       }
+       #imgs_fltr_brend, #imgs_fltr_class {
+         width: 17px;
+         height: 17px;
+         margin: auto 0;
+       }
+       .col {
+         display: flex;
+         flex-direction: column;
+       }
+       #btns_range_price {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+       }
+      .main_div_animal {
+        width: 80px;
+        height: 25px;
+        border-radius: 5px;
+        background: #20d435;
+        position: relative;
+      }
+      .main_div_animal::after, .main_div_animal::before {
+        content: '';
+        border-top: 10px solid #20d435;
+        border: 10px solid transparent;
+        position: absolute;
+        background: #20d435;
+      }
+      .main_div_animal::after {
+        border-top: 10px solid white;
+      }
+      .div_for_info_animal {
+        display: none;
+        width: 100px;
+      }
+      .price_on_product_div {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 48%;
+      }
+      .img_shop {
+        width: 42%;
+        margin: auto 0;
+      }
+      .img_and_price {
+        margin: 5% 5% 0 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .text_price {
+        margin: auto 0;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .text_old_price {
+        color: #bfbfbf;
+        font-size: 13px;
+        text-decoration: line-through;
+        border: none;
+        width: 40%;
+      }
+      .btn_from_header_btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 87px;
+        height: 87px;
+        border: none;
+        background-color: rgb(245, 245, 245);
+        border-radius: 18%;
+      }
+      .btn_from_header_img {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+      }
+      .reset_zoo_shops {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        background-image: url('../static/cross.png');
+        background-color: transparent;
+        background-size: 60%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+      }
+      .reset_zoo_shops:hover {
+        opacity: 0.66;
+      }
+      .link_with_text {
+        text-decoration: none;
+      }
+      .btn_from_header_btn {
+        background-color: transparent;
+      }
+      .btn_from_header_btn:hover {
+        background-color: rgb(244, 244, 244);
+      }
+    </style>
+  </head>
+  <body>
+    <div class = 'header'>
+      <img src = '../static/dog.webp' class = 'dog_img'>
+      <h1 class = 'header_h1'> СЕТЬ ЗООМАГАЗИНОВ ЕКАТЕРИНБУРГА </h1>
+      <img src = '../static/cat.png' class = 'cat_img'>
+      <div class = 'search_div'>
+        <div class = 'search'>
+          <input placeholder="Введите название товара" id = 'search_inp' onclick = 'request()'> </input>
+          <button id = 'btn_search'> </button>
+        </div>
+        <section id = 'request'>
+          <!-- !!! ЗАПРОСЫ -->
+          <div class = 'requests_div' id = 'req1'>
+            <button class = 'requests_btn1'> dmk </button>
+            <button class = 'requests_btn_1' onclick = 'closeRequest("req1")'> </button>
+          </div>
+        </section>
+      </div>
+      <div class = 'btns_menu'>
+        <div class = 'btns_menu1'>
+          <div class = 'names_shops' id = 'names_shops'>
+            <button class = 'btn_from_header_btn' onclick = "namesShopsOver()">
+              <img src = '../static/array_icon.png' class = 'btn_from_header_img'>
+              <p class = 'shops_p text_btn max_width_text'>
+                Список магазинов
+              </p>
+            </button>
+            <div id = 'zoo_shops'>
+              <button onclick = 'namesShopsOut()' class = 'reset_zoo_shops'>
+              </button>
+              <ul>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href = 'https://zapovednik96.ru/?utm_source=2gis&utm_medium=reklama&utm_campaign=knopka'  class = 'names_a'>«Заповедник» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://best-zoo.net/"  class = 'names_a'>«The best» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://korm1.ru/"  class = 'names_a'>«Кормушка» </a> <p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://ekb.mirhvost.ru/"  class = 'names_a'>«Мир хвостатых» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://vetfarm74.ru/" class = 'names_a'>«ВетФарм» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://4lapy.ru/" class = 'names_a'>«Четыре лапы» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="http://pitomecnn.ru/" class = 'names_a'>«Питомец» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://www.petshop.ru/" class = 'names_a'>«Petshop.ru» </a> </p>
+                </li>
+                <li>
+                  <p class = 'names_shops_pr'> Зоомагазин <a href="https://zooural.ru/" class = 'names_a'>«Зооурал» </a> </p>
+                </li>
+              </ul>
+              </div>
+          </div>
+          <button class = 'btn_from_header_btn'>
+            <img src = '../static/raiting.png' class = 'btn_from_header_img'>
+            <p class = 'max_width_text'>
+              Рейтинг товаров
+            </p>
+          </button>
+          <button class = 'btn_from_header_btn'>
+            <img src = '../static/comp.png' class = 'btn_from_header_img'>
+            <p class = 'max_width_text'> Добавить к сравнению </p>
+          </button>
+          <a href = '\reviews' class = 'link_with_text'>
+            <button class = 'btn_from_header_btn'>
+              <img src = 'static/review.png' class = 'btn_from_header_img'>
+              <p class = 'max_width_text'> Отзывы </p>
+            </button>
+          </a>
+          <a href = '\registration' class = 'link_with_text'>
+            <button class = 'btn_from_header_btn'>
+              <img src = 'static/reg.png' class = 'btn_from_header_img'>
+              <p class = 'max_width_text'> Регистрация </p>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class = 'sections'>
+      <a class = 'sections_a' href = 'dogs.html'>
+        <p class = 'sections_p'> Собаки </p>
+      </a>
+      <a class = 'sections_a' href = 'cats.html'>
+        <p class = 'sections_p'> Кошки </p>
+      </a>
+      <a class = 'sections_a' href = 'ferrets.html'>
+        <p class = 'sections_p'> Грызуны и хорьки </p>
+      </a>
+      <a class = 'sections_a' href = 'birds.html'>
+        <p class = 'sections_p'> Птицы </p>
+      </a>
+      <a class = 'sections_a' href = 'fish.html'>
+        <p class = 'sections_p'> Рыбы </p>
+      </a>
+      <a class = 'sections_a' href = 'reptilies.html'>
+        <p class = 'sections_p'> Рептилии </p>
+      </a>
+      <a class = 'sections_a'  href = 'dishes.html'>
+        <p class = 'sections_p'> Аксессуары </p>
+      </a>
+      <a class = 'sections_a'  href = 'hygiene.html'>
+        <p class = 'sections_p'> Гигиена </p>
+      </a>
+      <a class = 'sections_a' href = 'clinic.html'>
+        <p class = 'sections_p'> Вет.аптека </p>
+      </a>
+      <a class = 'sections_a' href = 'services.html'>
+        <p class = 'sections_p'> Услуги </p>
+      </a>
+    </div>
+    <hr>
+    <div class = 'arrows_div'>
+        <svg class = 'lt_arrow' onclick = 'prevImg()'> </svg>
+        <div id="prs"> </div>
+        <svg class = 'rt_arrow' onclick = 'nextImg()'> </svg>
+    </div>
+    <div class = 'offers'>
+      <h1 class = 'offers_h'> Предложения недели </h1>
+      <div class = 'prds_fltr'>
+        <div class = 'filter'>
+          <div class = 'boxs_fltr'>
+            <div class = 'box_fltr'>
+              <p>
+                Показать все товары ({{length_inf}})
+              </p>
+            </div>
+            <div class = 'box_fltr'>
+              <p>
+                Показать товары со скидкой ({{length_sale}})
+              </p>
+            </div>
+            <div  onclick="getInfo('brends_div', 'imgs_fltr_brend')">
+              <div class = 'box_fltr'>
+                <p>
+                  Бренд
+                </p>
+                <img src = 'https://cdn-icons-png.flaticon.com/128/54/54833.png' id = 'imgs_fltr_brend'>
+              </div>
+              <div id = 'brends_div'>
+                <form class = 'brends_form'>
+                  {% for i in range(len_brends[0].brand) %}
+                  <div>
+                    <input type = 'checkbox' id = 'brand{{i}}' value = '{{brends[i].brand}}'>
+                    <label>
+                      {{brends[i].brand}} ({{count_brends[i].count}})
+                    </label>
+                  </div>
+                  {% endfor %}
+                </form>
+              </div>
+            </div>
+            <div class = 'box_fltr col'>
+              <p>
+                Цена
+              </p>
+              <div class = 'btns_val_price'>
+                <input type = 'text' id = 'min_val_price' class = 'btn_val_price'>
+                <input type = 'text' id = 'max_val_price' class = 'btn_val_price'>
+              </div>
+              <section id = 'btns_range_price'>
+                <input type = 'range' value = '{{min_price[0].price}}' min = '{{min_price[0].price}}' max = '{{max_price[0].price}}' id="lower">
+                <input type = 'range' value = '{{max_price[0].price}}' min = '{{min_price[0].price}}' max = '{{max_price[0].price}}' id="upper">
+              </section>
+            </div>
+            <div class = 'box_fltr'>
+              <p>
+                Новинки ({{new[0].new}})
+              </p>
+            </div>
+            <div  onclick="getInfo('classes_div', 'imgs_fltr_class')">
+              <div class = 'box_fltr'>
+                <p>
+                  Класс
+                </p>
+                <img src = 'https://cdn-icons-png.flaticon.com/128/54/54833.png' id = 'imgs_fltr_class'>
+              </div>
+              <div id = 'classes_div'>
+                <form class = 'classes_form'>
+                  {% for i in range(len_classes[0].class) %}
+                  <div>
+                    <input type = 'checkbox' id = 'brand{{i}}' value = '{{brends[i].brand}}'>
+                    <label>
+                      {{classes[i].class}} ({{count_classes[i].count}})
+                    </label>
+                  </div>
+                  {% endfor %}
+                </form>
+              </div>
+            </div>
+            <div class = 'btns_fltr_save'>
+              <input type = 'submit' id = 'but_fltr_save' value = 'Применить'>
+              <input type = 'reset' id = 'but_fltr_otm' value = 'Сбросить'>
+            </div>
+          </div>
+        </div>
+        <div class = 'products'>
+          {% for i in range(length // 5) %}
+          <div class = 'prds_row' id = 'row{{i}}'>
+            {% for row in range(5) %}
+              {% if row + 5 * i <= length_inf - 1 %}
+              <div class = 'product_with_info'>
+                <div class = 'div_for_info_animal'>
+                  <div class = 'main_div_animal'>
+                  </div>
+                </div>
+                <div class = 'product'>
+                  <div class = 'prd_img' id = '{{row + 5 * i}}' style="background-image: url('{{inf[row + 5 * i].linkimg}}'); background-size: {{inf[row + 5 * i].sizeonpage}}" onmouseover='changeImg({{row + 5 * i}}, "{{inf[row + 5 * i].sc_link}}", "{{inf[row + 5 * i].size2}}")' onmouseout='backImg({{row + 5 * i}}, "{{inf[row + 5 * i].linkimg}}", "{{inf[row + 5 * i].sizeonpage}}")'>
+                    <img src = '../static/{{inf[row + 5 * i].animal}}' class = 'icon_animal' onmouseover="getInfoAnimal()" onmouseout="offInfoAnimal()">
+                  </div>
+                  <p class = 'prd_text'> {{inf[row + 5 * i].names}} </p>
+                  <div class = 'img_and_price'>
+                    <img src = '{{inf[row + 5 * i].img_shop}}' class = 'img_shop'>
+                    <div class = 'price_on_product_div'>
+                      <p class = 'text_price'> {{inf[row + 5 * i].price}}₽ </p>
+                      <input readonly type = 'text' class = 'text_old_price' value = '{{inf[row + 5 * i].old_price}}₽'>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class = 'pust_div'>
+    </div>
+    <div class = 'svyaz'>
+      <h2> Контакты </h2>
+      <div class = 'contacts'>
+        <img src = '' class = 'icon_cont'>
+        <img src = '' class = 'icon_cont'>
+        <img src = '' class = 'icon_cont'>
+        <img src = '' class = 'icon_cont'>
+        <p> Чат с поддержкой </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    var interval = null;
+    var links = ['https://4lapy.ru/resize/1920x400/upload/iblock/104/104cf3b4000ed107b58df71a0abab44b.jpg', '../static/marketing2.jpg', '../static/marketing3.png', '../static/marketing4.jpg', '../static/marketing5.jpg', '../static/marketing6.jpg', '../static/marketing7.jpg', 'https://api.zapovednik96.ru/upload/iblock/e6b/20mwctrs8kwo9g1wa2e91yxt51uej2ma.jpg', 'https://6kcmxu3d7l.a.trbcdn.net/s3/petshop-ru-static/9b402108717eac5913ed84f6358bdd54c72aa9e6.jpeg', 'https://6kcmxu3d7l.a.trbcdn.net/s3/petshop-ru-static/40b246d1c0c40ae3218f4dd32ce3b59437db3920.png']
+    var sizes = [[1440, 300], [1920, 435], [2651, 605], [2917, 1167], [1300, 396], [680, 240], [871, 255], [1903, 435], [756, 359], [756, 359]]
+    var ost_count = 0
+    var ost_count_prev = 0
+    var ides = []
+    var count_for_link = null;
+    var count_i = 1
+    var count_for_info_filter = 0
+    var slide1 = parseFloat(document.getElementById('lower').value);
+    var slide2 = parseFloat(document.getElementById('upper').value);
+
+    function oldPrice(){
+      prices = document.getElementsByClassName('text_old_price')
+      for (let i = 0; i < prices.length; i += 1){
+        if ((prices[i].value == 'None₽') || (prices[i].value == null) || (prices[i].value == '₽') || (prices[i].value == undefined)){
+          prices[i].style.display = 'none';
+        }
+        else{
+          document.getElementsByClassName('text_price')[i].style.color = 'rgb(219, 54, 54)';
+        }
+      }
+    }
+    oldPrice()
+
+
+    document.getElementById('min_val_price').value = String(slide1) + '₽';
+    document.getElementById('max_val_price').value = String(slide2) + '₽';
+    window.onload = function (){
+      var sliderSections = document.getElementById("btns_range_price");
+          for( var x = 0; x < sliderSections.length; x++ ){
+            var sliders = sliderSections.getElementsByTagName("input");
+            for( var y = 0; y < sliders.length; y++ ){
+              if( sliders[y].type ==="range" ){
+                sliders[y].oninput = slider;
+                sliders[y].oninput();
+              }
+            }
+          }
+    }
+
+
+
+    while (document.getElementById('row' + String(count_i)) != undefined){
+      document.getElementById('row' + String(count_i)).style.margin = '3.5% 0 0 0';
+      count_i += 1
+    }
+    document.getElementById('prs').style.backgroundImage = 'url(' + links[Math.abs(ost_count) % links.length] + ')'
+    document.getElementById('prs').style.height = '320px'
+    document.getElementById('prs').style.width = String(sizes[(Math.abs(Math.abs(ost_count) - ost_count_prev) % links.length)][0] * 320 / sizes[(Math.abs(Math.abs(ost_count) - ost_count_prev) % links.length)][1]) + 'px'
+    document.getElementById('prs').style.backgroundSize = 'cover';
+    function getInfo(val1, val2){
+      if (count_for_info_filter % 2 == 1){
+        offInfo(val1, val2)
+      }
+      else{
+        document.getElementById(val1).style.display = 'block';
+        document.getElementById(val2).style.transform = 'rotate(180deg)';
+        if (val1 == 'brends_div'){
+          document.getElementsByClassName('filter')[0].style.height = '640px'
+        }
+        else{
+          document.getElementsByClassName('filter')[0].style.height = '540px'
+        }
+      }
+      count_for_info_filter += 1
+    }
+    function offInfo(val1, val2){
+      document.getElementById(val1).style.display = 'none';
+      document.getElementById(val2).style.transform = 'rotate(0deg)';
+      document.getElementsByClassName('filter')[0].style.height = '468px'
+    }
+    function getInfoAnimal(){
+      document.getElementsByClassName('div_for_info_animal')[0].style.display = 'flex';
+      document.getElementsByClassName('div_for_info_animal')[0].style.flexDirection = 'column';
+    }
+    function offInfoAnimal(){
+      document.getElementsByClassName('div_for_info_animal')[0].style.display = 'none';
+    }
+    function changeImg(id, link, size){
+      elem = document.getElementById(id);
+      elem.style.backgroundImage = 'url(' + link + ')';
+      elem.style.backgroundSize = size;
+      elem.style.backgroundPosition = 'center';
+    }
+    function backImg(id, link, size){
+      elem = document.getElementById(id);
+      elem.style.backgroundImage = 'url(' + link + ')';
+      elem.style.backgroundSize = size;
+      elem.style.backgroundPosition = 'center';
+    }
+    function namesShopsOver(){
+      document.getElementById('zoo_shops').style.display = 'flex';
+      document.getElementById('zoo_shops').style.flexDirection = 'column';
+      document.getElementById('zoo_shops').style.width = '12%';
+      document.getElementById('zoo_shops').style.height = 'auto';
+      document.getElementById('zoo_shops').style.border = '1px solid #53f266';
+      document.getElementById('names_shops').style.height = 'auto';
+      document.getElementById('zoo_shops').style.padding = '0 2.5% 0 0';
+      document.getElementById('zoo_shops').style.backgroundColor = 'white';
+    }
+    function namesShopsOut(){
+      document.getElementById('zoo_shops').style.display = 'none';
+      document.getElementById('names_shops').style.height = '30%';
+    }
+    function request(){
+      request_section = document.getElementById('request')
+      request_section.style.height = 'auto';
+      request_section.style.display = 'flex';
+      request_section.style.flexDirection = 'column';
+
+      for (let i = 0; i < ides.length; i += 1){
+        document.getElementById(ides[i]).style.display = 'flex';
+        document.getElementById(ides[i]).style.flexDirection = 'row';
+        ides = []
+      }
+    }
+    function closeRequest(id){
+      document.getElementById(id).style.display = 'none';
+      ides.push(id)
+    }
+    function marketing(){
+      interval = setInterval(function() {
+        ost_count += 1
+        count_for_link = 0
+        if (((Math.abs(ost_count) - ost_count_prev) % links.length) < 0){
+          count_for_link = links.length
+        }
+        document.getElementById('prs').style.backgroundImage = 'url(' + links[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)] + ')'
+        document.getElementById('prs').style.height = '320px'
+        document.getElementById('prs').style.width = String(sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][0] * 320 / sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][1]) + 'px'
+        document.getElementById('prs').style.backgroundSize = 'cover';
+      }, 10000);
+    }
+    marketing()
+    function prevImg(){
+      count_for_link = 0
+      ost_count_prev += 1
+      if (((Math.abs(ost_count) - ost_count_prev) % links.length) < 0){
+        count_for_link = links.length
+      }
+      document.getElementById('prs').style.backgroundImage = 'url(' + links[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)] + ')'
+      document.getElementById('prs').style.height = '320px'
+      document.getElementById('prs').style.width = String(sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][0] * 320 / sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][1]) + 'px'
+      document.getElementById('prs').style.backgroundSize = 'cover';
+      clearTimeout(interval)
+      marketing()
+    }
+    function nextImg(){
+      ost_count += 1
+      count_for_link = 0
+      if (((Math.abs(ost_count) - ost_count_prev) % links.length) < 0){
+        count_for_link = links.length
+      }
+      document.getElementById('prs').style.backgroundImage = 'url(' + links[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)] + ')'
+      document.getElementById('prs').style.height = '320px'
+      document.getElementById('prs').style.width = String(sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][0] * 320 / sizes[count_for_link + ((Math.abs(ost_count) - ost_count_prev) % links.length)][1]) + 'px'
+      document.getElementById('prs').style.backgroundSize = 'cover';
+      clearTimeout(interval)
+      marketing()
+    }
+  </script>
+</html>

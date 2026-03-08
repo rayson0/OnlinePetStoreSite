@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<head>
+	<title>LOGIN</title>
+</head>
+<body>
+  <style>
+		body {
+			padding: 0 0.8%;
+		}
+		@font-face {
+			font-family: 'ChareInk';
+			src: url('../static/fonts/ChareInk-Bold.ttf');
+		}
+		@font-face {
+			font-family: 'SawarabiGothic-Regular';
+			src: url('../static/fonts/SawarabiGothic-Regular.ttf');
+		}
+    .grade {
+        width: 130px;
+    }
+		.avatar {
+			width: 17%;
+		}
+		.full_block_review {
+			margin-top: 30px;
+			border: 2px solid black;
+			width: 50%;
+			border-radius: 1vh;
+			padding: 1% 1.5%;
+		}
+		.header_review {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.elem_header {
+			margin: auto 0 auto 1.5%;
+		}
+		.stars {
+			width: 20px;
+			height: 20px;
+		}
+		.line_form_review {
+			display: flex;
+			flex-direction: row;
+			width: 15%;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+		.btn_offer_review {
+			width: 70px;
+			height: 40px;
+			border-radius: 1vh;
+			font-family: 'SawarabiGothic';
+			border: none;
+		}
+		.yes {
+			background-color: #20d435;
+			color: white;
+		}
+		h1, h2, h3 {
+			font-family: 'ChareInk';
+		}
+		#form_review {
+			display: none;
+		}
+		.two_btns {
+			width: 39%;
+			display: flex;
+			justify-content: space-between;
+		}
+		#offer_review {
+			border: 2px solid black;
+			padding: 1% 1.5%;
+			width: 22%;
+			border-radius: 1.2vh;
+		}
+		.text_in_review {
+			margin: auto 0;
+			font-family: 'SawarabiGothic';
+		}
+		p {
+			font-family: 'SawarabiGothic';
+		}
+		.line_without_star {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 33%;
+		}
+		.stars_div {
+			margin: auto 0;
+		}
+		.like {
+			width: 28px;
+			height: 28px;
+		}
+		.like_and_value {
+			display: flex;
+			flex-direction: row;
+		}
+		.block_with_text_and_likes_review {
+			display: flex;
+			flex-direction: column;
+			margin-left: 9%;
+		}
+		.two_col_like_and_dislike {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 14%
+		}
+		.value_like, .value_dislike {
+			margin: auto 0 auto 9px;
+			color: grey;
+		}
+  </style>
+
+		{% for row in datas %}
+
+		<div class = 'full_block_review'>
+			<div class = 'header_review'>
+				<div class = 'line_without_star'>
+					<img class = 'avatar'>
+					<p class = 'elem_header'> {{row.user}} </p>
+					<p class = 'elem_header'> {{row.date}} </p>
+				</div>
+				<div class = 'stars_div'>
+					{% for i in range(row.grade) %}
+						<img src = 'static/full_star.png' class = 'stars'>
+					{% endfor %}
+					{% for i in range(5 - row.grade) %}
+						<img src = 'static/empty_star.png' class = 'stars'>
+					{% endfor %}
+				</div>
+			</div>
+			<div class = 'block_with_text_and_likes_review'>
+	      <p class = 'vuvod'> {{row.description}} </p>
+				<div class = 'two_col_like_and_dislike'>
+					<div class = 'like_and_value'>
+						<img src = 'static/like.png' class = 'like'>
+						<p class = 'value_like'> {{row.like}} </p>
+					</div>
+					<div class = 'like_and_value'>
+						<form class = 'dis like' action="" method="post">
+							{{form.dislike()}}
+						</form>
+						<p class = 'value_dislike'> {{row.dislike}} </p>
+					</div>
+				</div>
+	    </div>
+		</div>
+    {% endfor %}
+
+</body>
+<script>
+	var avatar = document.getElementsByClassName('avatar')
+	var dislike_div = document.getElementsByClassName('dis')
+
+  for (i = 0; i < dislike_div.length; i ++){
+    dislike = dislike_div[i].getElementsByTagName('input')[0]
+    dislike.value = '';
+  	dislike.style.background = 'none';
+  	dislike.style.border = 'none';
+  	dislike.style.transform = 'rotate(180deg)';
+  	dislike.style.width = '28px';
+  	dislike.style.height = '28px';
+    dislike.style.backgroundSize = 'cover';
+    dislike.style.backgroundImage = 'url("{{chng_back}}")';
+  }
+	for (i = 0; i < avatar.length; i ++){
+		avatar[i].src = 'static/avatar' + Math.floor(Math.random() * 5) + '.png'
+	}
+
+	function changeForm(){
+		document.getElementById('form_review').style.display = 'block';
+		document.getElementById('offer_review').style.display = 'none'
+	}
+
+	function closeForm(){
+		document.getElementById('offer_review').style.display = 'none'
+	}
+</script>

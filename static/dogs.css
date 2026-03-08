@@ -1,0 +1,125 @@
+body {
+
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  height: 27%;
+  border: 5px solid #53f266;
+}
+@font-face {
+  font-family: 'ChareInk';
+  src: url('fonts/ChareInk-Bold.ttf');
+}
+@font-face {
+  font-family: 'SawarabiGothic-Regular';
+  src: url('fonts/SawarabiGothic-Regular.ttf');
+}
+h1 {
+  font-family: 'ChareInk';
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 15%;
+  padding: 0 0.3%;
+}
+.header_h1 {
+  font-family: 'ChareInk';
+  width: 20%;
+  text-align: center;
+  margin: auto 0;
+  color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+  background-image: linear-gradient(90deg, #f3cea6, #574e4a);
+}
+.dog_img {
+  margin-bottom: 0.2%;
+}
+.search_text {
+  margin-left: 5%;
+  width: 31%;
+}
+#btn_search {
+  background-image: url('search.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 41px;
+  height: 100%;
+  border: none;
+}
+#search_inp {
+  width: 97%;
+  border: none;
+  padding-left: 2.5%;
+  font-family: 'SawarabiGothic-Regular';
+  font-size: 95%;
+}
+p, h2 {
+  font-family: 'SawarabiGothic-Regular';
+}
+#zoo_shops {
+  display: none
+}
+.names_shops_pr {
+  font-size: 15px;
+}
+.names_shops {
+  margin-left: 3%;
+  width: 12%;
+  height: 30%;
+}
+.names_a, .rate_a {
+  color: black;
+  text-decoration: none;
+}
+.names_a:hover,  .rate_a:hover {
+  color: #525252;
+}
+input:focus {
+  outline: none;
+}
+#request {
+  display: none;
+}
+#requests_btn1, #requests_btn2, #requests_btn3 {
+  text-align: left;
+  border: none;
+  height: 30px;
+  padding: 0 4%;
+  width: 95%;
+}
+#requests_btn1:hover, #requests_btn2:hover, #requests_btn3:hover, {
+  background-color: #d9d9d9;
+}
+.table_prds {
+  margin-left: 2%;
+}
+#requests_btn_1 {
+  width: 5%;
+  background-image: url('cross.png');
+  border: none;
+  background-size: cover;
+}
+#requests_btn_1:hover {
+  opacity: 0.79;
+}
+.requests_div {
+  display: flex;
+  flex-direction: row;
+}
+.shops_h {
+  width: 100%;
+}
+.sections {
+  display: flex;
+  flex-direction: row;
+  height: 3.5%;
+}
+.sections_a {
+  margin-left: 2.5%;
+  line-height: 3.5%;
+}
+.sections_p {
+}

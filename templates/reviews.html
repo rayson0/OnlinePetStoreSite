@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<head>
+	<title> Книга отзывов </title>
+	<link rel="icon" href="https://cdn-icons-png.freepik.com/512/4775/4775486.png" type="image/x-icon">
+</head>
+<body>
+  <style>
+		* {
+			margin: 0;
+			padding: 0
+		}
+		@font-face {
+			font-family: 'ChareInk';
+			src: url('../static/fonts/ChareInk-Bold.ttf');
+		}
+		@font-face {
+			font-family: 'SawarabiGothic-Regular';
+			src: url('../static/fonts/SawarabiGothic-Regular.ttf');
+		}
+    .grade {
+        width: 130px;
+    }
+		.avatar {
+			width: 17%;
+		}
+		.full_block_review {
+			margin-top: 30px;
+			border: 2px solid black;
+			width: 50%;
+			border-radius: 1vh;
+			padding: 1% 1.5%;
+		}
+		.header_review {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.elem_header {
+			margin: auto 0 auto 1.5%;
+		}
+		.stars {
+			width: 20px;
+			height: 20px;
+		}
+		.line_form_review {
+			display: flex;
+			flex-direction: row;
+			width: 15%;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+		.btn_offer_review {
+			width: 9em;
+			height: 6em;
+			border-radius: 1vh;
+			font-family: 'SawarabiGothic';
+			border: none;
+		}
+		.yes {
+			background-color: #20d435;
+			color: white;
+		}
+		.yes:hover {
+			background-color: rgba(32, 212, 53, 0.91);
+			opacity: 0.9;
+		}
+		.no:hover {
+			background-color: rgb(250, 250, 250);
+			opacity: 0.9;
+		}
+		.no {
+			background-color: white;
+			color: #20d435;
+			border: 1px solid #20d435;
+		}
+		h1, h2, h3 {
+			font-family: 'ChareInk';
+		}
+		#form_review {
+			display: none;
+		}
+		.two_btns {
+			width: 25%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+		}
+		#offer_review {
+			border: 2px solid black;
+			padding: 10% 1%;
+			width: 60%;
+			border-radius: 1.2vh;
+			position: fixed;
+			background-color: white;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			right: auto;
+			z-index: 100;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%);
+		}
+		.text_in_review {
+			margin: auto 0;
+			font-family: 'SawarabiGothic';
+		}
+		p {
+			font-family: 'SawarabiGothic';
+		}
+		.line_without_star {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 33%;
+		}
+		.stars_div {
+			margin: auto 0;
+		}
+		.like {
+			width: 28px;
+			height: 28px;
+		}
+		.like_and_value {
+			display: flex;
+			flex-direction: row;
+		}
+		.block_with_text_and_likes_review {
+			display: flex;
+			flex-direction: column;
+			margin-left: 9%;
+		}
+		.two_col_like_and_dislike {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			width: 12%
+		}
+		.value_like, .value_dislike {
+			margin: auto 0 auto 5px;
+			color: grey;
+		}
+		.dis_img {
+			transform: rotate(180deg);
+		}
+		h1, h2, h3 {
+			text-align: center;
+		}
+		#form_review, #submit_in_review, .full_block_review {
+			position: relative;
+			z-index: 1;
+		}
+		.main_div {
+			position: fixed;
+			width: calc(100% - 3em);
+			background-color: rgba(0, 0, 0, 0.2);
+			z-index: 2;
+			padding: 0 1.5em;
+		}
+  </style>
+	<div class = 'main_div'>
+
+		<form action="" method="post">
+			{{ form.csrf_token() }}
+
+
+			<div id = 'offer_review'>
+				<h1> Желаете ли вы оставить отзыв? </h1>
+				<div class = 'two_btns'>
+					<button class = 'btn_offer_review yes' onclick = 'changeForm()'> Да! </button>
+					<button class = 'btn_offer_review no' onclick = 'closeForm()'> Нет! </button>
+				</div>
+			</div>
+
+			<div id = 'form_review'>
+				<h2> Форма для отзыва </h2>
+				<div class = 'line_form_review'>
+					<span class = 'text_in_review'> Username </span> {# выводим название поля #}
+					{{ form.user () }}
+				</div>
+
+				<div class = 'line_form_review'>
+					<span class = 'text_in_review'> Grade (1 to 5) </span> {# выводим само поле #}
+					{{ form.grade () }}
+				</div>
+
+				<div class = 'line_form_review'>
+					<span class = 'text_in_review'> Review </span> {# выводим само поле #}
+					{{ form.text () }}
+				</div>
+
+
+
+
+				<div id = 'submit_in_review' class = 'line_form_review'>
+						{{form.submit()}}
+				</div>
+				<a href = '/read_reviews'> l </a>
+			</div>
+
+	  </form>
+
+		<p>
+			{% if msg %}
+				{{msg}}
+			{% endif %}
+		</p>
+
+			{% for row in datas %}
+
+			<div class = 'full_block_review'>
+				<div class = 'header_review'>
+					<div class = 'line_without_star'>
+						<img class = 'avatar'>
+						<p class = 'elem_header'> {{row.user}} </p>
+						<p class = 'elem_header'> {{row.date}} </p>
+					</div>
+					<div class = 'stars_div'>
+						{% for i in range(row.grade) %}
+							<img src = 'static/full_star.png' class = 'stars'>
+						{% endfor %}
+						{% for i in range(5 - row.grade) %}
+							<img src = 'static/empty_star.png' class = 'stars'>
+						{% endfor %}
+					</div>
+				</div>
+				<div class = 'block_with_text_and_likes_review'>
+		      <p class = 'vuvod'> {{row.description}} </p>
+					<div class = 'two_col_like_and_dislike'>
+						<div class = 'like_and_value'>
+							<img src = 'static/like.png' class = 'like'>
+							<p class = 'value_like'> {{row.like}} </p>
+						</div>
+						<div class = 'like_and_value'>
+							<div class = 'dis like'>
+								<img src = 'static/like.png' class = 'dis_img like'>
+							</div>
+							<p class = 'value_dislike'> {{row.dislike}} </p>
+						</div>
+					</div>
+		    </div>
+			</div>
+	    {% endfor %}
+		</div>
+
+</body>
+<script>
+	var avatar = document.getElementsByClassName('avatar')
+	var submit_div = document.getElementById('submit_in_review')
+	var submit = submit_div.getElementsByTagName('input')[0]
+	var dislike_div = document.getElementsByClassName('dis')[0]
+	var dislike = dislike_div.getElementsByTagName('input')[0]
+
+	submit.style.height = '45px';
+	submit.style.width = '120px';
+	submit.style.backgroundColor = '#20d435';
+	submit.style.border = 'none';
+	submit.style.borderRadius = '1.5vh';
+	submit.style.fontFamily = 'SawarabiGothic'
+	submit.style.color = 'white'
+	submit.style.fontSize = '16px'
+	for (i = 0; i < avatar.length; i ++){
+		avatar[i].src = 'static/avatar' + Math.floor(Math.random() * 5) + '.png'
+	}
+
+	function changeForm(){
+		document.getElementById('form_review').style.display = 'block';
+		document.getElementById('offer_review').style.display = 'none';
+		console.log(document.getElementsByClassName('main_div')[0])
+		document.getElementsByClassName('main_div')[0].style.backgroundColor = 'transparent'
+	}
+
+	function closeForm(){
+		document.getElementById('offer_review').style.display = 'none'
+		document.getElementsByClassName('main_div')[0].style.backgroundColor = 'transparent'
+	}
+</script>

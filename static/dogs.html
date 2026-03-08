@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title> Сеть зоомагазинов Екатеринбурга </title>
+    <link rel = 'stylesheet' href = 'main.css'>
+  </head>
+  <body>
+    <div class = 'header'>
+      <img src = 'dog.webp' class = 'dog_img'>
+      <h1 class = 'header_h1'> СЕТЬ ЗООМАГАЗИНОВ ЕКАТЕРИНБУРГА </h1>
+      <img src = 'cat.png' class = 'cat_img'>
+      <div class = 'search_text'>
+        <p> Информация о товарах собрана из всех известных зоомагазинов </p>
+        <div class = 'search'>
+          <input placeholder="Введите название товара" id = 'search_inp' onclick = 'request()'> </input>
+          <button id = 'btn_search'> </button>
+        </div>
+        <datalist id = 'request'>
+          <!-- !!! ЗАПРОСЫ -->
+          <div class = 'requests_div'>
+            <button id = 'requests_btn1'> dmk </button>
+            <button id = 'requests_btn_1'> </button>
+          </div>
+        </datalist>
+      </div>
+      <div class = 'names_shops' onmouseout="namesShopsOut()" onmouseover="namesShopsOver()" id = 'names_shops'>
+        <p class = 'shops_h'>
+          Список зоомагазинов
+        </p>
+        <div id = 'zoo_shops'>
+          <ul>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href = 'https://zapovednik96.ru/?utm_source=2gis&utm_medium=reklama&utm_campaign=knopka'  class = 'names_a'>«Заповедник» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href = 'https://zoomagaziny.su/ekaterinburg/matroskin-ekaterinburg/'  class = 'names_a'>«Матроскин» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href = 'https://zoomagaziny.su/ekaterinburg/gav-ekaterinburg/'  class = 'names_a'>«Гав» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://zoomagaziny.su/ekaterinburg/anster-ekaterinburg/"  class = 'names_a'>«Анстер» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://best-zoo.net/"  class = 'names_a'>«The best» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://korm1.ru/"  class = 'names_a'>«Кормушка» </a> <p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://ekb.mirhvost.ru/"  class = 'names_a'>«Мир хвостатых» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr' class = 'names_shops_pr' class = 'names_shops_pr' class = 'names_shops_pr'> Зоомагазин <a href="https://vetfarm74.ru/" class = 'names_a'>«ВетФарм» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr' class = 'names_shops_pr' class = 'names_shops_pr'> Зоомагазин <a href="https://zoomagaziny.su/ekaterinburg/zhivoy-mir-ekaterinburg/"  class = 'names_a'>«Живой мир» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr' class = 'names_shops_pr'> Зоомагазин <a href="https://4lapy.ru/" class = 'names_a'>«Четыре лапы» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="http://pitomecnn.ru/" class = 'names_a'>«Питомец» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://petshopru-ekaterinburg.blizko.ru/" class = 'names_a'>«Petshop.ru» </a> </p>
+            </li>
+            <li>
+              <p class = 'names_shops_pr'> Зоомагазин <a href="https://zooural.ru/" class = 'names_a'>«Зооурал» </a> </p>
+            </li>
+          </ul>
+          </div>
+      </div>
+      <div class = 'table_prds'>
+        <a href = 'rate.html' class = 'rate_a'> <p> Рейтинг товаров </p> </a>
+      </div>
+    </div>
+    <hr>
+    <div class = 'sections'>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'dogs.html'> Собаки </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'cats.html'> Кошки </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'ferrets.html'> Грызуны и хорьки </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'birds.html'> Птицы </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'fish.html'> Рыбы </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'reptilies.html'> Рептилии </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'dishes.html'> Посуда </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'hygiene.html'> Гигиена </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'clinic.html'> Вет.аптека </p>
+      </a>
+      <a class = 'sections_a'>
+        <p class = 'sections_p' href = 'services.html'> Услуги </p>
+      </a>
+    </div>
+    <hr>
+  </body>
+  <script>
+    function namesShopsOver(){
+      document.getElementById('zoo_shops').style.display = 'flex';
+      document.getElementById('zoo_shops').style.flexDirection = 'column';
+      document.getElementById('zoo_shops').style.width = '100%';
+      document.getElementById('zoo_shops').style.height = 'auto';
+      document.getElementById('zoo_shops').style.border = '1px solid #53f266';
+      document.getElementById('names_shops').style.height = 'auto';
+      document.getElementById('zoo_shops').style.padding = '0 9% 0 0';
+      document.getElementById('zoo_shops').style.backgroundColor = 'white';
+    }
+    function namesShopsOut(){
+      document.getElementById('zoo_shops').style.display = 'none';
+      document.getElementById('names_shops').style.height = '30%';
+    }
+    function request(){
+      document.getElementById('request').style.width = '100%';
+      document.getElementById('request').style.height = 'auto';
+      document.getElementById('request').style.display = 'flex';
+      document.getElementById('request').style.flexDirection = 'column';
+      // document.getElementsByClassName('requests_btn').style.height = '';
+    }
+  </script>
+</html>

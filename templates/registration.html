@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<head>
+	<title> Регистрация пользователя </title>
+  <style>
+    .full_form {
+      padding: 2em;
+      border: 2px solid black;
+      border-radius: 12px;
+    }
+    .form {
+      display: flex;
+      flex-direction: row;
+			justify-content: space-between;
+			width: calc(280px + 12vw);
+    }
+		.password {
+			margin-top: calc(4px + 0.6vw)
+		}
+		.header {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+		.dog_img, .cat_img {
+			width: calc(60px + 6vw);
+
+		}
+		@font-face {
+			font-family: 'ChareInk';
+			src: url('../static/fonts/ChareInk-Bold.ttf');
+		}
+		h1 {
+			font-family: 'ChareInk';
+			font-size: calc(0.7em + 1.2vw);
+		}
+		.header_h1 {
+			font-family: 'ChareInk';
+			width: calc(120px + 10vw);
+			text-align: center;
+			margin: auto 0;
+			color: transparent;
+			-webkit-background-clip: text;
+			background-clip: text;
+			background-image: linear-gradient(90deg, #f3cea6, #574e4a);
+		}
+		input {
+			border-radius: 1.5vh;
+			border: 3px solid black;
+			padding: 0 2.5%;
+			width: calc(40px + 10vw);
+		}
+		input:focus {
+			border-color: blue;
+		}
+  </style>
+</head>
+<body>
+	<div class = 'header'>
+		<img src = '../static/dog.webp' class = 'dog_img'>
+		<h1 class = 'header_h1'> СЕТЬ ЗООМАГАЗИНОВ ЕКАТЕРИНБУРГА </h1>
+		<img src = '../static/cat.png' class = 'cat_img'>
+	</div>
+	<hr>
+  <h1> Регистрация пользователя </h1>
+  <div class = 'full_form'>
+    <div class = 'form login'>
+      <p> Введите имя пользователя </p>
+      {{form.login()}}
+    </div>
+    <div class = 'form password'>
+      <p> Введите пароль </p>
+      {{form.password()}}
+    </div>
+		<div class = 'form password'>
+      <p> Введите повторно пароль </p>
+      {{form.password_again()}}
+    </div>
+		{{form.submit()}}
+  </div>
+</body>
+<script>
+  var login_div = document.getElementsByClassName('login')[0]
+  var password_div = document.getElementsByClassName('password')[0]
+</script>
